@@ -109,8 +109,8 @@ services:
       REDIS_URL: redis://redis:6379
       CHROMA_PERSIST_DIRECTORY: /app/chroma_db
       CHROMA_DB_PATH: /app/ml_pipeline/chroma_db_gene_mvp_new
-      ML_PIPELINE_ENABLED: "true"
-      DEMO_MODE: "false"
+      ML_PIPELINE_ENABLED: "false"
+      DEMO_MODE: "true"
     volumes:
       - ./chroma_db:/app/chroma_db
       - ./app/ml_pipeline:/app/ml_pipeline
