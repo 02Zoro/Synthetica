@@ -1,0 +1,37 @@
+# Simplified requirements for deployment
+# Core FastAPI
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.5.0
+python-multipart==0.0.6
+
+# Basic AI libraries (compatible versions)
+langchain>=0.1.0
+sentence-transformers>=2.2.0
+transformers>=4.30.0
+torch>=2.0.0
+
+# Vector database
+chromadb>=0.4.0
+
+# Database
+neo4j>=5.0.0
+redis>=4.0.0
+
+# Data processing
+numpy>=1.21.0
+pandas>=1.5.0
+scikit-learn>=1.3.0
+
+# Graph processing
+networkx>=3.0
+
+# Monitoring
+prometheus-client>=0.19.0
+structlog>=23.0.0
+
+# Utilities
+python-dotenv>=1.0.0
+httpx>=0.25.0
+aiofiles>=23.0.0
+pydantic-settings>=2.0.0
