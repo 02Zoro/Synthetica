@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Frontend Connection</title>
+</head>
+<body>
+    <h1>Test Frontend Connection</h1>
+    <button onclick="testAPI()">Test API Connection</button>
+    <div id="result"></div>
+
+    <script>
+        async function testAPI() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Testing...';
+            
+            try {
+                const response = await fetch('http://localhost:8001/api/v1/research/generate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        query: 'test query',
+                        domain: 'biomedical',
+                        max_hypotheses: 1
+                    })
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    resultDiv.innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+                } else {
+                    resultDiv.innerHTML = 'Error: ' + response.status + ' ' + response.statusText;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
+

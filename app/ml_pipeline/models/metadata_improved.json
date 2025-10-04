@@ -1,0 +1,13 @@
+{
+  "num_nodes": 102,
+  "num_edges": 10025,
+  "node_features": 4,
+  "hidden_channels": 256,
+  "out_channels": 128,
+  "trained_at": "2025-10-03T13:21:08.067070",
+  "model_type": "Improved_GNN_LinkPrediction",
+  "architecture": "ImprovedGNNEncoder + ImprovedLinkDecoder",
+  "loss_function": "FocalLoss",
+  "optimizer": "AdamW",
+  "dropout": 0.3
+}
