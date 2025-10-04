@@ -7,7 +7,6 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import structlog
-from prometheus_fastapi_instrumentator import Instrumentator
 
 from app.core.config import settings
 from app.api.routes import research, health
@@ -80,8 +79,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Add Prometheus metrics
-Instrumentator().instrument(app).expose(app)
+# Prometheus monitoring removed for lightweight deployment
 
 # Include API routes
 app.include_router(health.router, prefix="/api/v1", tags=["health"])

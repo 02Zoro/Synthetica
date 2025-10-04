@@ -3,7 +3,7 @@ langchain>=0.2.0
 langgraph>=0.2.0
 langchain-openai>=0.2.0
 langchain-anthropic>=0.2.0
-sentence-transformers==2.2.2
+sentence-transformers==3.0.1
 transformers>=4.40.0
 torch>=2.6.0
 
@@ -15,7 +15,7 @@ weaviate-client==3.25.3
 # FastAPI and web framework
 fastapi==0.104.1
 uvicorn==0.24.0
-pydantic==2.5.0
+pydantic>=2.7.4
 python-multipart==0.0.6
 
 # Database and storage
@@ -36,9 +36,7 @@ networkx==3.2.1
 pyvis==0.3.2
 plotly==5.17.0
 
-# Monitoring and observability
-prometheus-client==0.19.0
-prometheus-fastapi-instrumentator==6.1.0
+# Logging
 structlog==23.2.0
 
 # Utilities
