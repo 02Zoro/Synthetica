@@ -69,7 +69,7 @@ function ResearchPage() {
 
     try {
       console.log('Sending request to backend...');
-      const response = await axios.post('http://localhost:8001/api/v1/research/generate', {
+      const response = await axios.post('http://localhost:8000/api/v1/research/generate', {
         query: values.query,
         domain: values.domain,
         max_hypotheses: values.max_hypotheses,
@@ -92,7 +92,7 @@ function ResearchPage() {
     setWorkflowStatus(null);
 
     try {
-          const response = await axios.post('http://localhost:8001/api/v1/research/async', {
+          const response = await axios.post('http://localhost:8000/api/v1/research/async', {
         query: values.query,
         domain: values.domain,
         max_hypotheses: values.max_hypotheses,
@@ -113,14 +113,14 @@ function ResearchPage() {
 
   const pollWorkflowStatus = async (id) => {
     try {
-          const response = await axios.get(`http://localhost:8001/api/v1/research/status/${id}`);
+          const response = await axios.get(`http://localhost:8000/api/v1/research/status/${id}`);
       setWorkflowStatus(response.data);
       
       if (response.data.status === 'running') {
         setTimeout(() => pollWorkflowStatus(id), 2000);
       } else if (response.data.status === 'completed') {
         // Fetch results
-            const resultResponse = await axios.get(`http://localhost:8001/api/v1/research/result/${id}`);
+            const resultResponse = await axios.get(`http://localhost:8000/api/v1/research/result/${id}`);
         setResults(resultResponse.data);
       }
     } catch (error) {
