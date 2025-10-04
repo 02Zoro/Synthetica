@@ -80,11 +80,13 @@ async def root():
     }
 
 @app.get("/health")
+@app.get("/api/v1/health")
 async def health_check():
     """Health check endpoint."""
     return {"status": "healthy", "service": "synthetica-demo"}
 
 @app.post("/research/generate", response_model=ResearchResponse)
+@app.post("/api/v1/research/generate", response_model=ResearchResponse)
 async def generate_hypotheses(query: ResearchQuery):
     """Generate research hypotheses from a query."""
     try:
@@ -220,6 +222,7 @@ async def generate_hypotheses(query: ResearchQuery):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/research/entities/{entity_name}")
+@app.get("/api/v1/research/entities/{entity_name}")
 async def find_related_entities(entity_name: str):
     """Find entities related to a given entity."""
     # Mock related entities
@@ -237,6 +240,7 @@ async def find_related_entities(entity_name: str):
     }
 
 @app.get("/research/paths/{entity1}/{entity2}")
+@app.get("/api/v1/research/paths/{entity1}/{entity2}")
 async def find_entity_paths(entity1: str, entity2: str):
     """Find paths between two entities."""
     # Mock paths
